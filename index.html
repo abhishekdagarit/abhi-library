@@ -32,9 +32,11 @@
       border-radius: 4px;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
+      background: #d6c5b8;
       border-radius: 4px;
     }
+    .book-card { box-shadow: 0 12px 30px rgba(91, 72, 58, 0.10); }
+    .book-card:hover { box-shadow: 0 18px 38px rgba(91, 72, 58, 0.17); }
   </style>
   <!-- React & ReactDOM CDNs -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -42,13 +44,14 @@
   <!-- Babel for JSX transformation -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans">
+<body class="bg-[#f8f5f1] text-stone-800 font-sans">
 
   <div id="root"></div>
 
   <script type="text/babel">
     function App() {
       const [flippedId, setFlippedId] = React.useState(null);
+      const [activeFilter, setActiveFilter] = React.useState('all');
 
       const books = [
         {
@@ -56,6 +59,7 @@
           title: "The Vegetarian",
           author: "Han Kang",
           rating: "5/5",
+          status: "read",
           review: "I read the book and I was shocked!, Its a very disturbing one. Probably one of the most disturbing books I have ever read. Its easy to read (I mean the language is easy to follow), but the way it stayed with me, days, weeks and months after is crazy. Just because of the impact the book had on me, I have to give it 5/5.",
           coverType: "image",
           coverUrl: "book_covers/the-vegetarian.jpg"
@@ -65,6 +69,7 @@
           title: "Ghost Wall",
           author: "Sarah Moss",
           rating: "2/5",
+          status: "read",
           review: "I read the book and through almost 95% of the book. I was like what the fuck am I reading it doesn’t make any sense as there’s nothing happening. In the end, what happens is what I have had an inclination would happen, but when I kept the book down, it still gave me that feeling of WOW and the feeling of blank stare into nothing!\n\nIn short, I like the book, even though it’s been a really difficult book to finish, because like I said, for 95% of the book, I was like what the fuck is this.\n\nButtttt that feeling is short lived. Initial rating was 3.95/5. And now it’s 2/5",
           coverType: "image",
           coverUrl: "book_covers/ghost-wall.jpg"
@@ -74,6 +79,7 @@
           title: "Tree",
           author: "Aya Kōda",
           rating: "2/5",
+          status: "reading",
           review: "I am still reading this book, not sure how I feel about it yet. I sometimes feel like I want to like this book but sometimes it just seems ridiculous!",
           coverType: "css",
           bgGradient: "from-amber-800 to-stone-900",
@@ -85,22 +91,54 @@
         setFlippedId(flippedId === id ? null : id);
       };
 
+      const filters = [
+        { id: 'all', label: 'All books' },
+        { id: 'read', label: 'Read' },
+        { id: 'reading', label: 'Reading' },
+        { id: 'to-read', label: 'To read' }
+      ];
+      const statusLabels = { read: 'Read', reading: 'Reading', 'to-read': 'To read' };
+      const filteredBooks = activeFilter === 'all'
+        ? books
+        : books.filter((book) => book.status === activeFilter);
+
       return (
-        <div className="min-h-screen bg-slate-50 text-slate-800 font-sans p-4 sm:p-8 flex flex-col items-center">
+        <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#fffdf9_0%,_#f8f5f1_52%,_#f2ece4_100%)] text-stone-800 font-sans p-5 sm:p-10 flex flex-col items-center">
           {/* Header */}
-          <header className="w-full max-w-4xl flex items-center justify-between mb-8 pb-4 border-b border-slate-200">
+          <header className="w-full max-w-5xl flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between mb-9 pb-6 border-b border-stone-200/80">
             <div>
-              <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-slate-900">Abhi's Library</h1>
-              <p className="text-sm text-slate-500 mt-0.5">Reading log & honest reviews</p>
+              <p className="text-[11px] uppercase tracking-[0.24em] text-rose-400 font-semibold mb-2">A quiet reading journal</p>
+              <h1 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-stone-800">Abhi's Library</h1>
+              <p className="text-sm text-stone-500 mt-1">Books finished, in progress, and waiting patiently.</p>
             </div>
-            <div className="bg-white border border-slate-200 px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 shadow-sm">
-              {books.length} Books
+            <div className="flex flex-col items-start sm:items-end gap-2">
+              <span className="text-[11px] uppercase tracking-[0.16em] font-semibold text-stone-400">Browse shelf</span>
+              <div className="flex flex-wrap gap-1.5 rounded-2xl bg-white/75 border border-stone-200 p-1.5 shadow-sm">
+                {filters.map((filter) => (
+                  <button
+                    key={filter.id}
+                    type="button"
+                    onClick={() => setActiveFilter(filter.id)}
+                    className={`rounded-xl px-3 py-2 text-xs font-semibold transition-colors ${activeFilter === filter.id ? 'bg-stone-800 text-white shadow-sm' : 'text-stone-500 hover:bg-stone-100 hover:text-stone-700'}`}
+                  >
+                    {filter.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </header>
 
           {/* Grid Container (3 columns on tablet/desktop, 2 on mobile) */}
-          <main className="w-full max-w-4xl grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            {books.map((book) => {
+          <main className="w-full max-w-5xl">
+            <div className="flex items-center justify-between mb-5">
+              <h2 className="font-serif text-xl text-stone-700">{activeFilter === 'all' ? 'The whole shelf' : statusLabels[activeFilter]}</h2>
+              <span className="text-xs text-stone-400">{filteredBooks.length} {filteredBooks.length === 1 ? 'book' : 'books'}</span>
+            </div>
+            {filteredBooks.length === 0 ? (
+              <div className="rounded-2xl border border-dashed border-stone-300 bg-white/50 px-6 py-14 text-center text-sm text-stone-500">Nothing here yet — a future read is waiting to join this shelf.</div>
+            ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-5 sm:gap-7">
+            {filteredBooks.map((book) => {
               const isFlipped = flippedId === book.id;
               return (
                 <div 
@@ -111,7 +149,7 @@
                   <div className={`w-full h-full relative transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
                     
                     {/* FRONT OF CARD */}
-                    <div className="absolute inset-0 w-full h-full backface-hidden rounded-xl overflow-hidden shadow-md border border-slate-200/80 bg-white flex flex-col">
+                    <div className="book-card absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden border border-stone-200/80 bg-white flex flex-col transition-shadow duration-300">
                       {book.coverType === 'image' ? (
                         <div className="w-full h-full relative">
                           <img 
@@ -119,10 +157,14 @@
                             alt={book.title} 
                             className="w-full h-full object-cover"
                           />
+                          <span className="absolute top-3 left-3 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-stone-600 shadow-sm backdrop-blur-sm">{statusLabels[book.status]}</span>
                         </div>
                       ) : (
                         <div className={`w-full h-full bg-gradient-to-br ${book.bgGradient} p-5 flex flex-col justify-between text-white`}>
-                          <div className="text-[10px] uppercase tracking-widest opacity-70 font-mono">Reading Log</div>
+                          <div className="flex items-center justify-between">
+                            <div className="text-[10px] uppercase tracking-widest opacity-70 font-mono">Reading Log</div>
+                            <span className="rounded-full bg-white/15 px-2 py-1 text-[9px] uppercase tracking-wider font-bold">{statusLabels[book.status]}</span>
+                          </div>
                           <div className="my-auto text-center">
                             <h3 className="font-serif text-lg sm:text-xl font-bold leading-snug mb-1">{book.title}</h3>
                             <p className={`text-xs ${book.accentColor} font-medium`}>{book.author}</p>
@@ -133,22 +175,22 @@
                     </div>
 
                     {/* BACK OF CARD */}
-                    <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-xl overflow-hidden shadow-md border border-slate-200 bg-white p-4 sm:p-5 flex flex-col justify-start text-left">
-                      <div className="flex items-center justify-between mb-2 pb-2 border-b border-slate-100">
-                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">Review</span>
+                    <div className="book-card absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl overflow-hidden border border-stone-200 bg-[#fffdf9] p-4 sm:p-5 flex flex-col justify-start text-left">
+                      <div className="flex items-center justify-between mb-2 pb-2 border-b border-stone-100">
+                        <span className="text-xs font-bold uppercase tracking-wider text-stone-400 font-mono">Review</span>
                         <span className="bg-amber-50 text-amber-700 border border-amber-200/60 px-2 py-0.5 rounded text-xs font-semibold">
                           ★ {book.rating}
                         </span>
                       </div>
                       
-                      <h4 className="font-serif font-bold text-slate-900 text-sm mb-2">{book.title}</h4>
+                      <h4 className="font-serif font-bold text-stone-800 text-sm mb-2">{book.title}</h4>
                       
                       {/* Scrollable review container anchored strictly to the top */}
-                      <div className="flex-1 overflow-y-auto pr-1 text-xs sm:text-sm text-slate-600 leading-relaxed whitespace-pre-wrap custom-scrollbar">
+                      <div className="flex-1 overflow-y-auto pr-1 text-xs sm:text-sm text-stone-600 leading-relaxed whitespace-pre-wrap custom-scrollbar">
                         {book.review}
                       </div>
                       
-                      <div className="mt-2 pt-2 border-t border-slate-100 text-[10px] text-slate-400 text-center font-mono">
+                      <div className="mt-2 pt-2 border-t border-stone-100 text-[10px] text-stone-400 text-center font-mono">
                         Tap to flip back
                       </div>
                     </div>
@@ -157,10 +199,12 @@
                 </div>
               );
             })}
+            </div>
+            )}
           </main>
 
           {/* Footer */}
-          <footer className="w-full max-w-4xl mt-12 pt-4 border-t border-slate-200 text-center text-xs text-slate-400">
+          <footer className="w-full max-w-5xl mt-14 pt-5 border-t border-stone-200/80 text-center text-xs text-stone-400">
             Abhi's Library • Built with React & Tailwind CSS
           </footer>
         </div>
