@@ -132,19 +132,7 @@
                     
                     {/* FRONT OF CARD */}
                     <div className="absolute inset-0 w-full h-full backface-hidden rounded-xl overflow-hidden shadow-md border border-slate-200/80 bg-white flex flex-col">
-                      {book.id === 2 ? (
-                        <div className="w-full h-full relative bg-emerald-900">
-                          <img 
-                            src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop" 
-                            alt={book.title} 
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
-                            <span className="text-xs uppercase tracking-wider text-emerald-300 font-semibold mb-0.5">Sarah Moss</span>
-                            <h3 className="text-white font-serif font-bold text-base sm:text-lg leading-tight">{book.title}</h3>
-                          </div>
-                        </div>
-                      ) : book.coverType === 'image' ? (
+                      {book.coverType === 'image' ? (
                         <div className="w-full h-full relative">
                           <img 
                             src={book.coverUrl} 
