@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhi's Library</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          perspective: {
+            '1000': '1000px',
+          },
+        }
+      }
+    }
+  </script>
+  <!-- Custom utility styles for 3D card flipping -->
+  <style>
+    .perspective-1000 { perspective: 1000px; }
+    .transform-style-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    /* Custom scrollbar for review text */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+  <!-- React & ReactDOM CDNs -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- Babel for JSX transformation -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function App() {
+      const [flippedId, setFlippedId] = React.useState(null);
+
+      const books = [
+        {
+          id: 1,
+          title: "The Vegetarian",
+          author: "Han Kang",
+          rating: "4/5",
+          review: "A haunting exploration of bodily autonomy, societal expectations, and quiet rebellion. The prose is striking and leaves a lasting impression long after finishing.",
+          coverType: "image",
+          coverUrl: "https://images-na.ssl-images-amazon.com/images/I/81zN7e6Yx9L.jpg"
+        },
+        {
+          id: 2,
+          title: "Ghost Wall",
+          author: "Sarah Moss",
+          rating: "2/5",
+          review: "I read the book and through almost 95% of the book. I was like what the fuck am I reading it doesn’t make any sense as there’s nothing happening. In the end, what happens is what I have had an inclination would happen, but when I kept the book down, it still gave me that feeling of WOW and the feeling of blank stare into nothing!\n\nIn short, I like the book, even though it’s been a really difficult book to finish, because like I said, for 95% of the book, I was like what the fuck is this.\n\nButtttt that feeling is short lived. Initial rating was 3.95/5. And now it’s 2/5",
+          coverType: "embedded",
+          coverUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop"
+        },
+        {
+          id: 3,
+          title: "Tree",
+          author: "Aya Kōda",
+          rating: "4/5",
+          review: "A delicate and observant collection of vignettes focusing on nature, daily life, and quiet emotional resonance.",
+          coverType: "css",
+          bgGradient: "from-amber-800 to-stone-900",
+          accentColor: "text-amber-200"
+        },
+        {
+          id: 4,
+          title: "Nothing Can Hurt You",
+          author: "Nicola Maye Goldberg",
+          rating: "3.5/5",
+          review: "A compelling look at tragedy and the various perspectives that shape how a community remembers an event.",
+          coverType: "css",
+          bgGradient: "from-blue-900 to-slate-950",
+          accentColor: "text-blue-200"
+        },
+        {
+          id: 5,
+          title: "The Trial",
+          author: "Franz Kafka",
+          rating: "4.5/5",
+          review: "An unnerving, surreal masterpiece capturing bureaucratic absurdity and existential dread with chilling precision.",
+          coverType: "css",
+          bgGradient: "from-stone-800 to-zinc-950",
+          accentColor: "text-stone-200"
+        }
+      ];
+
+      const handleFlip = (id) => {
+        setFlippedId(flippedId === id ? null : id);
+      };
+
+      return (
+        <div className="min-h-screen bg-slate-50 text-slate-800 font-sans p-4 sm:p-8 flex flex-col items-center">
+          {/* Header */}
+          <header className="w-full max-w-4xl flex items-center justify-between mb-8 pb-4 border-b border-slate-200">
+            <div>
+              <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-slate-900">Abhi's Library</h1>
+              <p className="text-sm text-slate-500 mt-0.5">Reading log & honest reviews</p>
+            </div>
+            <div className="bg-white border border-slate-200 px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 shadow-sm">
+              {books.length} Books
+            </div>
+          </header>
+
+          {/* Grid Container (3 columns on tablet/desktop, 2 on mobile) */}
+          <main className="w-full max-w-4xl grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            {books.map((book) => {
+              const isFlipped = flippedId === book.id;
+              return (
+                <div 
+                  key={book.id} 
+                  className="relative aspect-[2/3] cursor-pointer group perspective-1000"
+                  onClick={() => handleFlip(book.id)}
+                >
+                  <div className={`w-full h-full relative transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
+                    
+                    {/* FRONT OF CARD */}
+                    <div className="absolute inset-0 w-full h-full backface-hidden rounded-xl overflow-hidden shadow-md border border-slate-200/80 bg-white flex flex-col">
+                      {book.id === 2 ? (
+                        <div className="w-full h-full relative bg-emerald-900">
+                          <img 
+                            src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop" 
+                            alt={book.title} 
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+                            <span className="text-xs uppercase tracking-wider text-emerald-300 font-semibold mb-0.5">Sarah Moss</span>
+                            <h3 className="text-white font-serif font-bold text-base sm:text-lg leading-tight">{book.title}</h3>
+                          </div>
+                        </div>
+                      ) : book.coverType === 'image' ? (
+                        <div className="w-full h-full relative">
+                          <img 
+                            src={book.coverUrl} 
+                            alt={book.title} 
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div className={`w-full h-full bg-gradient-to-br ${book.bgGradient} p-5 flex flex-col justify-between text-white`}>
+                          <div className="text-[10px] uppercase tracking-widest opacity-70 font-mono">Reading Log</div>
+                          <div className="my-auto text-center">
+                            <h3 className="font-serif text-lg sm:text-xl font-bold leading-snug mb-1">{book.title}</h3>
+                            <p className={`text-xs ${book.accentColor} font-medium`}>{book.author}</p>
+                          </div>
+                          <div className="text-[10px] opacity-60 text-right font-mono">Tap to flip</div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* BACK OF CARD */}
+                    <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-xl overflow-hidden shadow-md border border-slate-200 bg-white p-4 sm:p-5 flex flex-col justify-start text-left">
+                      <div className="flex items-center justify-between mb-2 pb-2 border-b border-slate-100">
+                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">Review</span>
+                        <span className="bg-amber-50 text-amber-700 border border-amber-200/60 px-2 py-0.5 rounded text-xs font-semibold">
+                          ★ {book.rating}
+                        </span>
+                      </div>
+                      
+                      <h4 className="font-serif font-bold text-slate-900 text-sm mb-2">{book.title}</h4>
+                      
+                      {/* Scrollable review container anchored strictly to the top */}
+                      <div className="flex-1 overflow-y-auto pr-1 text-xs sm:text-sm text-slate-600 leading-relaxed whitespace-pre-wrap custom-scrollbar">
+                        {book.review}
+                      </div>
+                      
+                      <div className="mt-2 pt-2 border-t border-slate-100 text-[10px] text-slate-400 text-center font-mono">
+                        Tap to flip back
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              );
+            })}
+          </main>
+
+          {/* Footer */}
+          <footer className="w-full max-w-4xl mt-12 pt-4 border-t border-slate-200 text-center text-xs text-slate-400">
+            Abhi's Library • Built with React & Tailwind CSS
+          </footer>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
