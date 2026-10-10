@@ -77,6 +77,7 @@
     "author": "George Orwell",
     "rating": "2/5",
     "status": "read",
+    "coverUrl": "book_covers/animal-farm.jpg",
     "review": "It’s something that goes as I knew it would. Kinda late to the club of people who have read this book. If I had read it much earlier then I would have thought it’s amazing. Now I kinda knew everything about the book and it just seemed like a formality to read it."
   },
   {
@@ -85,6 +86,7 @@
     "author": "Lee Child",
     "rating": "0/5",
     "status": "reading",
+    "coverUrl": "book_covers/reacher-persuader.jpg",
     "review": "It’s catchy and now I know why Tom Cruise playing Jack Reacher is not accurate and why the series is better."
   },
   {
@@ -93,6 +95,7 @@
     "author": "Yoko Tawada",
     "rating": "0/5",
     "status": "reading",
+    "coverUrl": "book_covers/the-naked-eye.jpg",
     "review": "This is crazy, mind-bending, and I can’t wait to finish it. Just have to keep at it."
   },
   {
@@ -101,6 +104,7 @@
     "author": "Franz Kafka",
     "rating": "0/5",
     "status": "to-read",
+    "coverUrl": "book_covers/the-trial.jpg",
     "review": "I am reading this one for obvious reasons."
   },
   {
@@ -109,6 +113,7 @@
     "author": "Vincenzo Latronico",
     "rating": "0/5",
     "status": "to-read",
+    "coverUrl": "book_covers/perfection.jpg",
     "review": "I found it in a book store in London and found the words on the back cover intriguing."
   },
   {
@@ -117,6 +122,7 @@
     "author": "Nick Louth",
     "rating": "0/5",
     "status": "reading",
+    "coverUrl": "book_covers/the-body-in-stairwell.jpg",
     "review": "Seems like a one-time read that I have to find time to read and finish. Not expecting wonders from it, but yeah, I have to find out how it ends."
   },
   {
@@ -126,6 +132,7 @@
     "rating": "5/5",
     "status": "read",
     "category": "Non-fiction",
+    "coverUrl": "book_covers/the-life-changing-magic-of-tidying-up.jpg",
     "review": "I loved the book, 5/5 stars. The book is quite a pleasant and easy read; it is great. I don’t want to use more words to describe it than what Marie would appreciate. But I loved it."
   }
 ]
