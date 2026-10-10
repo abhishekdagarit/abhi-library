@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abhi's Library</title>
+  <title>Abhi's Library — Reading Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -17,44 +20,48 @@
       }
     }
   </script>
-  <!-- Custom utility styles for 3D card flipping -->
+  <!-- Soft glass surfaces and editorial details -->
   <style>
-    .perspective-1000 { perspective: 1000px; }
-    .transform-style-3d { transform-style: preserve-3d; }
-    .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-    .rotate-y-180 { transform: rotateY(180deg); }
     .library-backdrop {
       background:
-        radial-gradient(ellipse at 12% 8%, rgba(246, 220, 190, 0.95), transparent 34%),
-        radial-gradient(ellipse at 90% 12%, rgba(196, 210, 198, 0.92), transparent 32%),
-        radial-gradient(ellipse at 75% 90%, rgba(224, 197, 177, 0.78), transparent 38%),
-        linear-gradient(135deg, #e8e4dc 0%, #d8d6d0 48%, #ece8e0 100%);
+        radial-gradient(ellipse at 4% 0%, rgba(226, 219, 202, .68), transparent 34%),
+        radial-gradient(ellipse at 100% 14%, rgba(202, 216, 207, .62), transparent 32%),
+        radial-gradient(ellipse at 72% 100%, rgba(224, 208, 191, .5), transparent 35%),
+        #f4f3ef;
     }
     .glass-panel {
-      background: rgba(255, 255, 255, 0.42);
-      border: 1px solid rgba(255, 255, 255, 0.68);
-      box-shadow: 0 24px 80px rgba(68, 61, 52, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.74);
-      -webkit-backdrop-filter: blur(28px) saturate(145%);
-      backdrop-filter: blur(28px) saturate(145%);
+      background: rgba(255, 255, 255, .56);
+      border: 1px solid rgba(255, 255, 255, .78);
+      box-shadow: 0 30px 90px rgba(56, 57, 48, .09), inset 0 1px 0 rgba(255, 255, 255, .9);
+      -webkit-backdrop-filter: blur(30px) saturate(130%);
+      backdrop-filter: blur(30px) saturate(130%);
     }
     .glass-book {
-      background: rgba(255, 255, 255, 0.36);
-      border: 1px solid rgba(255, 255, 255, 0.58);
-      box-shadow: 0 8px 26px rgba(61, 57, 50, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.72);
-      -webkit-backdrop-filter: blur(18px) saturate(135%);
-      backdrop-filter: blur(18px) saturate(135%);
+      background: rgba(255, 255, 255, .38);
+      border: 1px solid rgba(255, 255, 255, .62);
+      box-shadow: 0 8px 24px rgba(61, 57, 50, .045), inset 0 1px 0 rgba(255, 255, 255, .62);
+      -webkit-backdrop-filter: blur(20px) saturate(130%);
+      backdrop-filter: blur(20px) saturate(130%);
     }
     .glass-book:hover {
-      background: rgba(255, 255, 255, 0.54);
-      box-shadow: 0 16px 34px rgba(61, 57, 50, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, .72);
+      border-color: rgba(255, 255, 255, .94);
+      box-shadow: 0 18px 42px rgba(61, 57, 50, .11), inset 0 1px 0 white;
     }
-    .cover-shadow { box-shadow: 0 9px 20px rgba(48, 43, 36, 0.2); }
+    .cover-shadow { box-shadow: 0 12px 26px rgba(48, 43, 36, .14); }
     .glass-review {
-      background: rgba(255, 255, 255, 0.48);
-      border: 1px solid rgba(255, 255, 255, 0.72);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 12px 30px rgba(54, 49, 42, 0.08);
-      -webkit-backdrop-filter: blur(22px) saturate(145%);
-      backdrop-filter: blur(22px) saturate(145%);
+      background: rgba(255, 255, 255, .52);
+      border: 1px solid rgba(255, 255, 255, .76);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8), 0 12px 30px rgba(54, 49, 42, .06);
+      -webkit-backdrop-filter: blur(22px) saturate(135%);
+      backdrop-filter: blur(22px) saturate(135%);
+    }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    .sans { font-family: 'DM Sans', sans-serif; }
+    .book-cover { background: linear-gradient(145deg, rgba(255,255,255,.9), rgba(239,237,230,.72)); }
+    .filter-chip { transition: color .2s ease, background .2s ease, box-shadow .2s ease; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
     }
     @supports not ((backdrop-filter: blur(1px))) {
       .glass-panel, .glass-book { background: rgba(250, 248, 243, 0.94); }
@@ -66,7 +73,7 @@
   <!-- Babel for JSX transformation -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
-<body class="bg-[#f8f5f1] text-stone-800 font-sans">
+  <body class="bg-[#f4f3ef] text-stone-800 sans">
 
   <div id="root"></div>
 
@@ -139,86 +146,77 @@
       }, [selectedBook]);
 
       return (
-        <div className="library-backdrop min-h-screen text-[#282925] font-sans px-3 py-4 sm:px-6 sm:py-8 flex flex-col items-center relative isolate">
-          <div className="pointer-events-none absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-white/35 blur-3xl"></div>
-          <div className="pointer-events-none absolute -right-20 bottom-8 h-80 w-80 rounded-full bg-[#c2b8aa]/35 blur-3xl"></div>
-          <div className="glass-panel relative w-full max-w-7xl rounded-[28px] sm:rounded-[36px] px-4 py-5 sm:px-8 sm:py-7">
-          <header className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between mb-7">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[#716b61] font-semibold mb-1.5">Your personal bookshelf</p>
-              <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-[#282925]">My Library</h1>
-            </div>
-            <div className="flex flex-col items-start sm:items-end gap-2">
-              <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-[#77746e]">Filter collection</span>
-              <div className="flex flex-wrap gap-1 rounded-full bg-white/35 border border-white/60 p-1 shadow-sm">
-                {filters.map((filter) => (
-                  <button
-                    key={filter.id}
-                    type="button"
-                    onClick={() => setActiveFilter(filter.id)}
-                    className={`rounded-full px-3.5 py-2 text-[11px] font-semibold transition-all ${activeFilter === filter.id ? 'bg-[#292a27] text-white shadow-md' : 'text-[#6d6d67] hover:bg-white/60 hover:text-[#292a27]'}`}
-                  >
-                    {filter.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </header>
+        <div className="library-backdrop min-h-screen px-3 py-5 text-[#292a27] sm:px-6 sm:py-10">
+          <div className="mx-auto max-w-6xl">
+            <header className="mb-7 flex items-center justify-between px-1 sm:mb-10">
+              <a href="#top" className="flex items-center gap-3 text-sm font-semibold tracking-tight text-[#30312c]" aria-label="Reading Room home">
+                <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/80 bg-white/55 text-base shadow-sm">✳</span>
+                <span>reading room<span className="text-[#a3a096]">.</span></span>
+              </a>
+              <span className="rounded-full border border-white/75 bg-white/40 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[.16em] text-[#77776e]">Personal collection</span>
+            </header>
 
-          <main>
-            <div className="flex items-end justify-between mb-4">
-              <div>
-                <p className="text-[9px] uppercase tracking-[0.2em] text-[#77746e] mb-1">A little world of stories</p>
-                <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-[#282925]">{activeFilter === 'all' ? 'Book Collection' : statusLabels[activeFilter]}</h2>
+            <section id="top" className="glass-panel relative mb-7 overflow-hidden rounded-[28px] px-5 py-7 sm:mb-9 sm:rounded-[36px] sm:px-10 sm:py-11">
+              <div className="pointer-events-none absolute -right-10 -top-20 h-64 w-64 rounded-full border border-white/50 bg-white/15 blur-2xl"></div>
+              <div className="relative flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+                <div className="max-w-xl">
+                  <p className="mb-3 text-[10px] font-bold uppercase tracking-[.22em] text-[#88877e]">A quiet place for good stories</p>
+                  <h1 className="serif text-4xl leading-[1.08] tracking-[-.04em] text-[#30312c] sm:text-6xl">Books, in their<br className="hidden sm:block" /> own time.</h1>
+                  <p className="mt-4 max-w-sm text-sm leading-6 text-[#77776e]">A small archive of what I’ve read, what I’m reading, and what’s next.</p>
+                </div>
+                <div className="flex gap-7 border-t border-white/60 pt-5 sm:border-l sm:border-t-0 sm:pl-8 sm:pt-0">
+                  <div><p className="serif text-3xl text-[#34352f]">{books.length.toString().padStart(2, '0')}</p><p className="mt-1 text-[9px] font-bold uppercase tracking-[.15em] text-[#8a8980]">In the library</p></div>
+                  <div><p className="serif text-3xl text-[#34352f]">{books.filter((book) => book.status === 'read').length.toString().padStart(2, '0')}</p><p className="mt-1 text-[9px] font-bold uppercase tracking-[.15em] text-[#8a8980]">Finished</p></div>
+                </div>
               </div>
-              <span className="text-[10px] text-[#77746e]">{filteredBooks.length} {filteredBooks.length === 1 ? 'book' : 'books'}</span>
-            </div>
-            {filteredBooks.length === 0 ? (
-              <div className="rounded-2xl border border-white/60 bg-white/25 px-6 py-12 text-center text-sm text-[#6d6d67]">Nothing here yet — a future read is waiting to join this shelf.</div>
-            ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
-            {filteredBooks.map((book) => {
-              return (
-                <article
-                  key={book.id}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Open review for ${book.title}`}
-                  onClick={() => setSelectedBook(book)}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                      event.preventDefault();
-                      setSelectedBook(book);
-                    }
-                  }}
-                  className="glass-book group min-w-0 cursor-pointer rounded-2xl p-2.5 text-left transition-all duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#64675c] sm:p-3"
-                >
-                  <div className="cover-shadow relative mb-2.5 aspect-[0.72] overflow-hidden rounded-xl bg-white/55">
-                    <img
-                      src={book.coverUrl}
-                      alt={`${book.title} by ${book.author}`}
-                      className="h-full w-full object-contain p-2 sm:p-3"
-                    />
+            </section>
+
+            <main className="glass-panel rounded-[26px] p-4 sm:rounded-[32px] sm:p-8">
+              <div className="mb-6 flex flex-col gap-5 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="mb-1 text-[9px] font-bold uppercase tracking-[.2em] text-[#929087]">The catalogue</p>
+                  <div className="flex items-baseline gap-3">
+                    <h2 className="serif text-2xl text-[#34352f] sm:text-3xl">{activeFilter === 'all' ? 'All books' : statusLabels[activeFilter]}</h2>
+                    <span className="text-xs text-[#99988f]">{filteredBooks.length} {filteredBooks.length === 1 ? 'title' : 'titles'}</span>
                   </div>
-                  <div className="flex items-start justify-between gap-1.5">
-                    <h3 className="line-clamp-2 min-h-[2.5rem] text-[13px] font-semibold leading-snug text-[#292a27] sm:text-sm">{book.title}</h3>
-                    {book.status === 'read' && (
-                      <span className="shrink-0 rounded-full border border-amber-200/80 bg-amber-50/90 px-1.5 py-0.5 text-[9px] font-bold text-amber-800" aria-label={`Rating ${book.rating}`}>
-                        ★ {book.rating}
-                      </span>
-                    )}
-                  </div>
-                  <p className="mt-0.5 truncate text-[11px] sm:text-xs text-[#74716a]">{book.author}</p>
-                </article>
-              );
-            })}
-            </div>
-            )}
-          </main>
+                </div>
+                <nav aria-label="Filter books" className="flex w-fit max-w-full flex-wrap gap-1 rounded-full border border-white/70 bg-white/30 p-1">
+                  {filters.map((filter) => (
+                    <button key={filter.id} type="button" onClick={() => setActiveFilter(filter.id)} aria-pressed={activeFilter === filter.id}
+                      className={`filter-chip rounded-full px-3.5 py-2 text-[11px] font-semibold ${activeFilter === filter.id ? 'bg-[#34352f] text-white shadow-md' : 'text-[#77776e] hover:bg-white/70 hover:text-[#34352f]'}`}>
+                      {filter.label}
+                    </button>
+                  ))}
+                </nav>
+              </div>
+              {filteredBooks.length === 0 ? (
+                <div className="rounded-2xl border border-white/70 bg-white/25 px-6 py-16 text-center text-sm text-[#77776e]">Nothing here yet — a future read is waiting to join this shelf.</div>
+              ) : (
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+                  {filteredBooks.map((book) => (
+                    <article key={book.id} role="button" tabIndex={0} aria-label={`Open review for ${book.title}`}
+                      onClick={() => setSelectedBook(book)}
+                      onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedBook(book); } }}
+                      className="glass-book group min-w-0 cursor-pointer rounded-[20px] p-2.5 text-left transition-all duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#64675c] sm:rounded-[24px] sm:p-3">
+                      <div className="cover-shadow book-cover relative mb-3 aspect-[.76] overflow-hidden rounded-[14px] p-2 sm:rounded-[18px] sm:p-3">
+                        <img src={book.coverUrl} alt={`${book.title} by ${book.author}`} loading="lazy" className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]" />
+                        <span className="absolute left-2.5 top-2.5 rounded-full border border-white/70 bg-white/70 px-2 py-1 text-[8px] font-bold uppercase tracking-[.12em] text-[#696960] backdrop-blur-md">{statusLabels[book.status]}</span>
+                        {book.status === 'read' && <span className="absolute bottom-2.5 right-2.5 rounded-full border border-white/70 bg-white/75 px-2 py-1 text-[9px] font-semibold text-[#70664e] backdrop-blur-md" aria-label={`Rating ${book.rating}`}>★ {book.rating}</span>}
+                      </div>
+                      <div className="px-1 pb-1">
+                        <h3 className="line-clamp-2 min-h-[2.6rem] text-[13px] font-semibold leading-snug text-[#34352f] sm:text-sm">{book.title}</h3>
+                        <p className="mt-1 truncate text-[11px] text-[#85847c] sm:text-xs">{book.author}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              )}
+            </main>
+            <footer className="px-2 pb-2 pt-5 text-center text-[10px] tracking-wide text-[#929087]">A personal library, collected one page at a time.</footer>
           </div>
           {selectedBook && (
             <div
-              className="fixed inset-0 z-50 flex items-center justify-center bg-[#282925]/35 p-3 backdrop-blur-md sm:p-6"
+              className="fixed inset-0 z-50 flex items-center justify-center bg-[#282925]/30 p-3 backdrop-blur-lg sm:p-6"
               onClick={() => setSelectedBook(null)}
             >
               <section
