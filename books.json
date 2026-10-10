@@ -34,5 +34,41 @@
     "status": "to-read",
     "review": "I have seen this book quite a few places, I believe I have also seen it with Palki.",
     "coverUrl": "book_covers/butter.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Next In Line",
+    "author": "Jeffrey Archer",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "I just haven't managed to finish to one, I start it and then start it and then start again, I like it but haven't been able to pull through yet!",
+    "coverUrl": "book_covers/next-in-line.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Throne Of Glass",
+    "author": "Sarah Moss",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "Hyped by Maya Hawke, daughter of Uma Thurman, calling it her adult Harry Potter version and being obsessed for it. I might get the courage to read it in some winter break or something. She says it has changed her life and was obsessed with it.",
+    "coverUrl": "book_covers/throne-of-glass.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Purple Hibiscus",
+    "author": "Chimamanda Ngozi Adichie",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "Its been ranked higher than 'the vegetarian' and marked as 'aching and insanely sad thorughout', sad to say that I would love to read it to experience the pause after reading a good book",
+    "coverUrl": "book_covers/purple-hibiscus.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Dubliners",
+    "author": "James Joyce",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "The book Cullian Murphy calls life changing",
+    "coverUrl": "book_covers/dublingers.jpg"
   }
 ]
