@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "The Vegetarian",
+    "author": "Han Kang",
+    "rating": "5/5",
+    "status": "read",
+    "review": "I read the book and I was shocked!, Its a very disturbing one. Probably one of the most disturbing books I have ever read. Its easy to read (I mean the language is easy to follow), but the way it stayed with me, days, weeks and months after is crazy. Just because of the impact the book had on me, I have to give it 5/5.",
+    "coverUrl": "book_covers/the-vegetarian.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Ghost Wall",
+    "author": "Sarah Moss",
+    "rating": "2/5",
+    "status": "read",
+    "review": "I read the book and through almost 95% of the book. I was like what the fuck am I reading it doesn’t make any sense as there’s nothing happening. In the end, what happens is what I have had an inclination would happen, but when I kept the book down, it still gave me that feeling of WOW and the feeling of blank stare into nothing!\n\nIn short, I like the book, even though it’s been a really difficult book to finish, because like I said, for 95% of the book, I was like what the fuck is this.\n\nButtttt that feeling is short lived. Initial rating was 3.95/5. And now it’s 2/5",
+    "coverUrl": "book_covers/ghost-wall.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Tree",
+    "author": "Aya Kōda",
+    "rating": "2/5",
+    "status": "reading",
+    "review": "I am still reading this book, not sure how I feel about it yet. I sometimes feel like I want to like this book but sometimes it just seems ridiculous!",
+    "coverUrl": "book_covers/tree.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Butter",
+    "author": "Asako Yuzuki",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "I have seen this book quite a few places, I believe I have also seen it with Palki.",
+    "coverUrl": "book_covers/butter.jpg"
+  }
+]

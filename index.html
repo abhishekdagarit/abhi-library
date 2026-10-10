@@ -81,49 +81,26 @@
     function App() {
       const [activeFilter, setActiveFilter] = React.useState('all');
       const [selectedBook, setSelectedBook] = React.useState(null);
+      const [books, setBooks] = React.useState([]);
+      const [booksLoading, setBooksLoading] = React.useState(true);
+      const [booksError, setBooksError] = React.useState(false);
 
-      const books = [
-        {
-          id: 1,
-          title: "The Vegetarian",
-          author: "Han Kang",
-          rating: "5/5",
-          status: "read",
-          review: "I read the book and I was shocked!, Its a very disturbing one. Probably one of the most disturbing books I have ever read. Its easy to read (I mean the language is easy to follow), but the way it stayed with me, days, weeks and months after is crazy. Just because of the impact the book had on me, I have to give it 5/5.",
-          coverType: "image",
-          coverUrl: "book_covers/the-vegetarian.jpg"
-        },
-        {
-          id: 2,
-          title: "Ghost Wall",
-          author: "Sarah Moss",
-          rating: "2/5",
-          status: "read",
-          review: "I read the book and through almost 95% of the book. I was like what the fuck am I reading it doesn’t make any sense as there’s nothing happening. In the end, what happens is what I have had an inclination would happen, but when I kept the book down, it still gave me that feeling of WOW and the feeling of blank stare into nothing!\n\nIn short, I like the book, even though it’s been a really difficult book to finish, because like I said, for 95% of the book, I was like what the fuck is this.\n\nButtttt that feeling is short lived. Initial rating was 3.95/5. And now it’s 2/5",
-          coverType: "image",
-          coverUrl: "book_covers/ghost-wall.jpg"
-        },
-        {
-          id: 3,
-          title: "Tree",
-          author: "Aya Kōda",
-          rating: "2/5",
-          status: "reading",
-          review: "I am still reading this book, not sure how I feel about it yet. I sometimes feel like I want to like this book but sometimes it just seems ridiculous!",
-          coverType: "image",
-          coverUrl: "book_covers/tree.jpg"
-        },
-        {
-          id: 4,
-          title: "Butter",
-          author: "Asako Yuzuki",
-          rating: "0/5",
-          status: "to-read",
-          review: "I have seen this book quite a few places, I believe I have also seen it with Palki.",
-          coverType: "image",
-          coverUrl: "book_covers/butter.jpg"
-        }
-      ];
+      React.useEffect(() => {
+        fetch('./books.json')
+          .then((response) => {
+            if (!response.ok) throw new Error('Could not load books.json');
+            return response.json();
+          })
+          .then((data) => {
+            if (!Array.isArray(data)) throw new Error('books.json must contain a list of books');
+            setBooks(data);
+          })
+          .catch((error) => {
+            console.error('Unable to load the book collection:', error);
+            setBooksError(true);
+          })
+          .finally(() => setBooksLoading(false));
+      }, []);
 
       const filters = [
         { id: 'all', label: 'All books' },
@@ -189,7 +166,11 @@
                   ))}
                 </nav>
               </div>
-              {filteredBooks.length === 0 ? (
+              {booksLoading ? (
+                <div className="rounded-2xl border border-white/70 bg-white/25 px-6 py-16 text-center text-sm text-[#77776e]" role="status">Opening the library…</div>
+              ) : booksError ? (
+                <div className="rounded-2xl border border-white/70 bg-white/25 px-6 py-16 text-center text-sm text-[#77776e]" role="alert">The collection couldn’t be loaded. Check that books.json is available and valid.</div>
+              ) : filteredBooks.length === 0 ? (
                 <div className="rounded-2xl border border-white/70 bg-white/25 px-6 py-16 text-center text-sm text-[#77776e]">Nothing here yet — a future read is waiting to join this shelf.</div>
               ) : (
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
