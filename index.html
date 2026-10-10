@@ -59,6 +59,7 @@
     .serif { font-family: 'Playfair Display', Georgia, serif; }
     .sans { font-family: 'DM Sans', sans-serif; }
     .book-cover { background: linear-gradient(145deg, rgba(255,255,255,.9), rgba(239,237,230,.72)); }
+    .cover-placeholder { background: radial-gradient(ellipse at 10% 5%, rgba(255,255,255,.9), transparent 55%), linear-gradient(145deg, #e7e5dc, #d6d9d0); }
     .filter-chip { transition: color .2s ease, background .2s ease, box-shadow .2s ease; }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
@@ -180,7 +181,14 @@
                       onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedBook(book); } }}
                       className="glass-book group min-w-0 cursor-pointer rounded-[20px] p-2.5 text-left transition-all duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#64675c] sm:rounded-[24px] sm:p-3">
                       <div className="cover-shadow book-cover relative mb-3 aspect-[.76] overflow-hidden rounded-[14px] p-2 sm:rounded-[18px] sm:p-3">
-                        <img src={book.coverUrl} alt={`${book.title} by ${book.author}`} loading="lazy" className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]" />
+                        {book.coverUrl ? (
+                          <img src={book.coverUrl} alt={`${book.title} by ${book.author}`} loading="lazy" className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]" />
+                        ) : (
+                          <div className="cover-placeholder flex h-full w-full flex-col justify-between rounded-lg p-3 text-left sm:p-4">
+                            <span className="text-[8px] font-bold uppercase tracking-[.16em] text-[#77776e]">{book.author}</span>
+                            <span className="serif text-base leading-tight text-[#34352f] sm:text-xl">{book.title}</span>
+                          </div>
+                        )}
                         <span className="absolute left-2.5 top-2.5 rounded-full border border-white/70 bg-white/70 px-2 py-1 text-[8px] font-bold uppercase tracking-[.12em] text-[#696960] backdrop-blur-md">{statusLabels[book.status]}</span>
                         {book.status === 'read' && <span className="absolute bottom-2.5 right-2.5 rounded-full border border-white/70 bg-white/75 px-2 py-1 text-[9px] font-semibold text-[#70664e] backdrop-blur-md" aria-label={`Rating ${book.rating}`}>★ {book.rating}</span>}
                       </div>
@@ -224,11 +232,14 @@
                 </div>
                 <div className="grid gap-4 sm:grid-cols-[170px_minmax(0,1fr)]">
                   <div className="cover-shadow mx-auto w-full max-w-[170px] overflow-hidden rounded-2xl bg-white/50 p-2 sm:mx-0">
-                    <img
-                      src={selectedBook.coverUrl}
-                      alt={`${selectedBook.title} cover`}
-                      className="max-h-64 w-full object-contain"
-                    />
+                    {selectedBook.coverUrl ? (
+                      <img src={selectedBook.coverUrl} alt={`${selectedBook.title} cover`} className="max-h-64 w-full object-contain" />
+                    ) : (
+                      <div className="cover-placeholder flex aspect-[.76] flex-col justify-between rounded-xl p-4">
+                        <span className="text-[9px] font-bold uppercase tracking-[.16em] text-[#77776e]">{selectedBook.author}</span>
+                        <span className="serif text-xl leading-tight text-[#34352f]">{selectedBook.title}</span>
+                      </div>
+                    )}
                   </div>
                   <div className="glass-review rounded-2xl p-4 sm:p-5">
                     <div className="mb-3 flex items-center justify-between gap-3 border-b border-white/70 pb-3">

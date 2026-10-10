@@ -70,5 +70,62 @@
     "status": "to-read",
     "review": "The book Cullian Murphy calls life changing",
     "coverUrl": "book_covers/dublingers.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Animal Farm",
+    "author": "George Orwell",
+    "rating": "2/5",
+    "status": "read",
+    "review": "It’s something that goes as I knew it would. Kinda late to the club of people who have read this book. If I had read it much earlier then I would have thought it’s amazing. Now I kinda knew everything about the book and it just seemed like a formality to read it."
+  },
+  {
+    "id": 10,
+    "title": "Reacher: Persuader",
+    "author": "Lee Child",
+    "rating": "0/5",
+    "status": "reading",
+    "review": "It’s catchy and now I know why Tom Cruise playing Jack Reacher is not accurate and why the series is better."
+  },
+  {
+    "id": 11,
+    "title": "The Naked Eye",
+    "author": "Yoko Tawada",
+    "rating": "0/5",
+    "status": "reading",
+    "review": "This is crazy, mind-bending, and I can’t wait to finish it. Just have to keep at it."
+  },
+  {
+    "id": 12,
+    "title": "The Trial",
+    "author": "Franz Kafka",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "I am reading this one for obvious reasons."
+  },
+  {
+    "id": 13,
+    "title": "Perfection",
+    "author": "Vincenzo Latronico",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "I found it in a book store in London and found the words on the back cover intriguing."
+  },
+  {
+    "id": 14,
+    "title": "The Body in the Stairwell",
+    "author": "Nick Louth",
+    "rating": "0/5",
+    "status": "reading",
+    "review": "Seems like a one-time read that I have to find time to read and finish. Not expecting wonders from it, but yeah, I have to find out how it ends."
+  },
+  {
+    "id": 15,
+    "title": "The Life-Changing Magic of Tidying Up",
+    "author": "Marie Kondo",
+    "rating": "5/5",
+    "status": "read",
+    "category": "Non-fiction",
+    "review": "I loved the book, 5/5 stars. The book is quite a pleasant and easy read; it is great. I don’t want to use more words to describe it than what Marie would appreciate. But I loved it."
   }
 ]
