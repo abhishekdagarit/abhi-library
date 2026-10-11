@@ -40,7 +40,7 @@
     "title": "Next In Line",
     "author": "Jeffrey Archer",
     "rating": "0/5",
-    "status": "to-read",
+    "status": "reading",
     "review": "I just haven't managed to finish to one, I start it and then start it and then start again, I like it but haven't been able to pull through yet!",
     "coverUrl": "book_covers/next-in-line.jpg"
   },
@@ -134,5 +134,41 @@
     "category": "Non-fiction",
     "coverUrl": "book_covers/the-life-changing-magic-of-tidying-up.jpg",
     "review": "I loved the book, 5/5 stars. The book is quite a pleasant and easy read; it is great. I don’t want to use more words to describe it than what Marie would appreciate. But I loved it."
+  },
+  {
+    "id": 16,
+    "title": "The Silent Patient",
+    "author": "Alex Michaelides",
+    "rating": "0/5",
+    "status": "to-read",
+    "coverUrl": "book_covers/the-silent-patient.jpg",
+    "review": "wife shoots husband 5 times and doesn't speak a word"
+  },
+  {
+    "id": 17,
+    "title": "The New Rules for Men",
+    "author": "Esquire (edited by Joe Keohane)",
+    "rating": "0/5",
+    "status": "to-read",
+    "coverUrl": "book_covers/the-new-rules-for-men.jpg",
+    "review": "things modern men should know and why. This shows some of the basic etiquates that men should know of"
+  },
+  {
+    "id": 18,
+    "title": "Did You Ever Love Me",
+    "author": "Rithvik Singh",
+    "rating": "0/5",
+    "status": "to-read",
+    "coverUrl": "book_covers/did-you-ever-love-me.jpg",
+    "review": "From an Indian author, and insta people are saying its this great book that made them cry"
+  },
+  {
+    "id": 19,
+    "title": "The Palace of Illusions",
+    "author": "Chitra Banerjee Divakaruni",
+    "rating": "4/5",
+    "status": "read",
+    "coverUrl": "book_covers/the-palace-of-illusions.jpg",
+    "review": "I liked it, and I feel like re-reading the book again and again. Something pulls me to it!"
   }
 ]
