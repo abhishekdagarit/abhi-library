@@ -170,5 +170,13 @@
     "status": "read",
     "coverUrl": "book_covers/the-palace-of-illusions.jpg",
     "review": "I liked it, and I feel like re-reading the book again and again. Something pulls me to it!"
+  },
+  {
+    "id": 20,
+    "title": "Siva: The Siva Purana Retold",
+    "author": "Ramesh Menon",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "supposed to be this book that makes shiva more personal!"
   }
 ]
