@@ -166,7 +166,7 @@
     "id": 19,
     "title": "The Palace of Illusions",
     "author": "Chitra Banerjee Divakaruni",
-    "rating": "4/5",
+    "rating": "4.5/5",
     "status": "read",
     "coverUrl": "book_covers/the-palace-of-illusions.jpg",
     "review": "I liked it, and I feel like re-reading the book again and again. Something pulls me to it!"
@@ -179,5 +179,117 @@
     "status": "to-read",
     "coverUrl": "book_covers/siva-the-siva-purana-retold.jpg",
     "review": "supposed to be this book that makes shiva more personal!"
+  },
+  {
+    "id": 21,
+    "title": "Verity",
+    "author": "Colleen Hoover",
+    "rating": "4/5",
+    "status": "read",
+    "review": "I had that awestuck feeling after keeping it aside. But yeah the movie doesn't live up to the book."
+  },
+  {
+    "id": 22,
+    "title": "Geisha of Gion",
+    "author": "Mineko Iwasaki with Rande Brown",
+    "rating": "5/5",
+    "status": "read",
+    "review": "Her story in inspiring and I felt like I could experience her life when I was reading her story and quite a sudden turn to events which I had not anticipated which makes it more real."
+  },
+  {
+    "id": 23,
+    "title": "The Boy, the Mole, the Fox and the Horse",
+    "author": "Charlie Mackesy",
+    "rating": "5/5",
+    "status": "read",
+    "review": "It holds a special place in my heart"
+  },
+  {
+    "id": 24,
+    "title": "Norwegian Wood",
+    "author": "Haruki Murakami",
+    "rating": "5/5",
+    "status": "read",
+    "review": "This is a special book for me. I love it and will love to read it again and again. All time favs."
+  },
+  {
+    "id": 25,
+    "title": "Nineteen Eighty-Four",
+    "author": "George Orwell",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "this is another one from that Animal Farm guy, I kinda know what this is going to be about but yeah have to finish it."
+  },
+  {
+    "id": 26,
+    "title": "The 12 Week Year",
+    "author": "Brian P. Moran and Michael Lennington",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "Do 1 year worth of tasks in 12 week"
+  },
+  {
+    "id": 27,
+    "title": "The One Thing",
+    "author": "Gary Keller with Jay Papasan",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "Find the one thing to focus on"
+  },
+  {
+    "id": 28,
+    "title": "My Memories of I.N.A. & Its Netaji",
+    "author": "Shah Nawaz Khan",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "I feel a pull for this book, can't wait to finish it."
+  },
+  {
+    "id": 29,
+    "title": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "I should have read it long time back, but yeah time to read it is now."
+  },
+  {
+    "id": 30,
+    "title": "South of the Border, West of the Sun",
+    "author": "Haruki Murakami",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "Because its from Murakami"
+  },
+  {
+    "id": 31,
+    "title": "The Samurai Detectives: Volume 2 — The Killer on the Streets",
+    "author": "Shotaro Ikenami",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "Japanese thrillers are great. I read another one and the style of writing is simple and easy to follow, just what I like."
+  },
+  {
+    "id": 32,
+    "title": "How to Kill Men and Get Away With It",
+    "author": "Katy Brent",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "read it a bit but yeah will still have time to finish it. Whatever I read was good"
+  },
+  {
+    "id": 33,
+    "title": "The Friend of the Family",
+    "author": "Dean Koontz",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "It comes highly recommended"
+  },
+  {
+    "id": 34,
+    "title": "Autobiography of a Yogi",
+    "author": "Paramahansa Yogananda",
+    "rating": "0/5",
+    "status": "to-read",
+    "review": "I read it a long time back, I have completly forgotten it. Will read it again soon"
   }
 ]
