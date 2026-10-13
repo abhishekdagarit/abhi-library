@@ -114,8 +114,9 @@
         ? books
         : books.filter((book) => book.status === activeFilter);
       const sortedBooks = [...filteredBooks].sort((a, b) => {
-        if (a.status === 'read' && b.status !== 'read') return -1;
-        if (a.status !== 'read' && b.status === 'read') return 1;
+        const statusOrder = { read: 0, reading: 1, 'to-read': 2 };
+        const statusDifference = statusOrder[a.status] - statusOrder[b.status];
+        if (statusDifference !== 0) return statusDifference;
         if (a.status !== 'read') return 0;
 
         const ratingA = Number.parseFloat(a.rating) || 0;
