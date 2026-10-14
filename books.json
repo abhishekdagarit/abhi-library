@@ -186,6 +186,7 @@
     "author": "Colleen Hoover",
     "rating": "4/5",
     "status": "read",
+    "coverUrl": "book_covers/verity.jpg",
     "review": "I had that awestuck feeling after keeping it aside. But yeah the movie doesn't live up to the book."
   },
   {
@@ -194,6 +195,7 @@
     "author": "Mineko Iwasaki with Rande Brown",
     "rating": "5/5",
     "status": "read",
+    "coverUrl": "book_covers/geisha-of-gion.jpg",
     "review": "Her story in inspiring and I felt like I could experience her life when I was reading her story and quite a sudden turn to events which I had not anticipated which makes it more real."
   },
   {
@@ -202,6 +204,7 @@
     "author": "Charlie Mackesy",
     "rating": "5/5",
     "status": "read",
+    "coverUrl": "book_covers/the-boy-the-mole-the-fox-and-the-horse.jpg",
     "review": "It holds a special place in my heart"
   },
   {
@@ -210,6 +213,7 @@
     "author": "Haruki Murakami",
     "rating": "5/5",
     "status": "read",
+    "coverUrl": "book_covers/norwegian-wood.jpg",
     "review": "This is a special book for me. I love it and will love to read it again and again. All time favs."
   },
   {
@@ -218,6 +222,7 @@
     "author": "George Orwell",
     "rating": "0/5",
     "status": "to-read",
+    "coverUrl": "book_covers/nineteen-eighty-four.jpg",
     "review": "this is another one from that Animal Farm guy, I kinda know what this is going to be about but yeah have to finish it."
   },
   {
@@ -226,6 +231,7 @@
     "author": "Brian P. Moran and Michael Lennington",
     "rating": "0/5",
     "status": "to-read",
+    "coverUrl": "book_covers/the-12-week-year.jpg",
     "review": "Do 1 year worth of tasks in 12 week"
   },
   {
@@ -234,6 +240,7 @@
     "author": "Gary Keller with Jay Papasan",
     "rating": "0/5",
     "status": "to-read",
+    "coverUrl": "book_covers/the-one-thing.jpg",
     "review": "Find the one thing to focus on"
   },
   {
@@ -242,6 +249,7 @@
     "author": "Shah Nawaz Khan",
     "rating": "0/5",
     "status": "to-read",
+    "coverUrl": "book_covers/my-memories-of-ina-and-its-netaji.jpg",
     "review": "I feel a pull for this book, can't wait to finish it."
   },
   {
@@ -250,6 +258,7 @@
     "author": "Morgan Housel",
     "rating": "0/5",
     "status": "to-read",
+    "coverUrl": "book_covers/the-psychology-of-money.jpg",
     "review": "I should have read it long time back, but yeah time to read it is now."
   },
   {
@@ -258,6 +267,7 @@
     "author": "Haruki Murakami",
     "rating": "0/5",
     "status": "to-read",
+    "coverUrl": "book_covers/south-of-the-border-west-of-the-sun.jpg",
     "review": "Because its from Murakami"
   },
   {
@@ -266,6 +276,7 @@
     "author": "Shotaro Ikenami",
     "rating": "0/5",
     "status": "to-read",
+    "coverUrl": "book_covers/the-samurai-detectives-volume-2.jpg",
     "review": "Japanese thrillers are great. I read another one and the style of writing is simple and easy to follow, just what I like."
   },
   {
@@ -274,6 +285,7 @@
     "author": "Katy Brent",
     "rating": "0/5",
     "status": "to-read",
+    "coverUrl": "book_covers/how-to-kill-men-and-get-away-with-it.jpg",
     "review": "read it a bit but yeah will still have time to finish it. Whatever I read was good"
   },
   {
@@ -282,6 +294,7 @@
     "author": "Dean Koontz",
     "rating": "0/5",
     "status": "to-read",
+    "coverUrl": "book_covers/the-friend-of-the-family.jpg",
     "review": "It comes highly recommended"
   },
   {
@@ -290,6 +303,7 @@
     "author": "Paramahansa Yogananda",
     "rating": "0/5",
     "status": "to-read",
+    "coverUrl": "book_covers/autobiography-of-a-yogi.jpg",
     "review": "I read it a long time back, I have completly forgotten it. Will read it again soon"
   }
 ]
